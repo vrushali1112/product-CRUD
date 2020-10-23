@@ -1,5 +1,5 @@
 var express = require("express");
-var development = require('./config/appConfig')
+var config = require('./config/appConfig')
 var app = express();
 var cors = require('cors')
 app.use(cors())
@@ -24,11 +24,21 @@ app.use(function(req, res, next) {
     next();
   });
 
+  // use express router
+var router = express.Router();
+
+//controllers
+var categoryRoutes = require("./controllers/categoryController");
 
 
+app.use("/Category", router);
 
 
-const port = development.PORT;
+//call  routing
+categoryRoutes(router); 
+
+
+const port = config.PORT;
 
 app.listen( port, (req, res) => {
     console.log(`Server is running on ${port} port.`);
