@@ -30,20 +30,19 @@ var router = express.Router();
 //controllers
 var categoryRoutes = require("./controllers/categoryController");
 var sizeRoutes = require("./controllers/sizeController")
+var productRoutes = require("./controllers/productController")
 
-
+//Route
 app.use("/Category", router);
 app.use("/Size",router);
-
+app.use("/Product",router);
 
 //call  routing
 categoryRoutes(router); 
 sizeRoutes(router); 
-
-
+productRoutes(router); 
 
 const port = config.PORT;
-
 app.listen( port, (req, res) => {
     console.log(`Server is running on ${port} port.`);
   });
