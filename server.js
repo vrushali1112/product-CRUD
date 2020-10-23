@@ -29,13 +29,17 @@ var router = express.Router();
 
 //controllers
 var categoryRoutes = require("./controllers/categoryController");
+var sizeRoutes = require("./controllers/sizeController")
 
 
 app.use("/Category", router);
+app.use("/Size",router);
 
 
 //call  routing
 categoryRoutes(router); 
+sizeRoutes(router); 
+
 
 
 const port = config.PORT;

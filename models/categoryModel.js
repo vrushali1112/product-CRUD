@@ -3,8 +3,8 @@ const Category = require("../mongoosemodel/category");
 module.exports = {
   async createCategory(data) {
     try {
-        if (data) {
-            var saveData = {};
+      if (data) {
+        var saveData = {};
         if (data._id) {
           saveData = await Category.updateOne({ _id: data._id });
         } else {
